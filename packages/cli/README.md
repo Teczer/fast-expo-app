@@ -1,10 +1,13 @@
 # Fast Expo App CLI
 
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+
 <p align="center">
   Get started by running <b><code>npx fast-expo-app@latest</code></b>
 </p>
 
-## Simple & Fast Starter for React Native, Expo, NativeWind, and TypeScript
+## Simple & Fast Starter for Expo, Nativewind, and TypeScript
 
 ![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1721761113/React_Native_Boilerplate_1_ekixp3.png)
 <p align="center">
@@ -58,3 +61,7 @@ See [LICENSE](LICENSE) for more information.
 ---
 
 Made with ♥ by [Teczer](https://mehdihattou.com/)
+
+[downloads-image]: https://img.shields.io/npm/dm/fast-expo-app?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/fast-expo-app
+[npm-image]: https://img.shields.io/npm/v/fast-expo-app?color=0b7285&logoColor=0b7285
