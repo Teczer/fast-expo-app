@@ -9,7 +9,7 @@
 
 ## Simple & Fast Starter for Expo, Nativewind, and TypeScript
 
-![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1721761113/React_Native_Boilerplate_1_ekixp3.png)
+![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1748088179/FAST-EXPO-APP.png)
 <p align="center">
 <b>
 This boilerplate provides a fast and modern setup for building React Native applications with Expo, NativeWind, and TypeScript. It's designed to enhance developer experience and streamline your development process.a
@@ -43,10 +43,8 @@ Developer experience first:
 
 ### Requirements
 
-- Node.js 14+ (recommended version: 18.x)
-- BUN + YARN IS VERY RECOMMENDED or npm
-- [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- Node.js 22+ (Recommended LTS)
+- BUN IS VERY RECOMMENDED
 
 ### Contributions
 
