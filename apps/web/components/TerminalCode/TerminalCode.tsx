@@ -1,21 +1,61 @@
-import { cn } from "@/lib/utils";
-import { InteractiveGridPattern } from "../magicui/interactive-grid-pattern";
-import { TerminalDemo } from "../TerminalDemo";
-import { BackgroundLines } from "../ui/background-lines";
+import {
+  AnimatedSpan,
+  Terminal,
+  TypingAnimation,
+} from "@/components/magicui/terminal";
 
 export function TerminalCode() {
   return (
-    <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-      <InteractiveGridPattern
-        className={cn(
-          "[mask-image:radial-gradient(350px_circle_at_center,white,transparent)]"
-        )}
-        width={20}
-        height={20}
-        squares={[80, 80]}
-        squaresClassName="hover:fill-purple-200"
-      />
-      <TerminalDemo />
-    </BackgroundLines>
+    <Terminal>
+      <TypingAnimation>&gt; npx fast-expo-app@latest</TypingAnimation>
+
+      <AnimatedSpan delay={2000} className="text-green-500">
+        <span>✔ Framework detected: Expo</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={2500} className="text-green-500">
+        <span>✔ NativeWind integration validated</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={3000} className="text-green-500">
+        <span>✔ Dark/Light mode toggle configured</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={3500} className="text-green-500">
+        <span>✔ File-based routing with Expo Router enabled</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={4000} className="text-green-500">
+        <span>✔ TypeScript strict mode activated</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={4500} className="text-green-500">
+        <span>✔ Installed & configured MMKV storage</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={5000} className="text-green-500">
+        <span>✔ Jest setup complete (Unit testing ready)</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={5500} className="text-green-500">
+        <span>✔ ESLint & Prettier configured</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={6000} className="text-green-500">
+        <span>✔ Absolute imports with @ prefix enabled</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={6500} className="text-green-500">
+        <span>✔ Dependencies installed via Bun</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={7000} className="text-blue-400">
+        <span>✨ Your fast-expo-app is ready! Build, test, ship.</span>
+      </AnimatedSpan>
+
+      <AnimatedSpan delay={7500} className="text-muted-foreground">
+        <span>💡 Tip: Start coding in app/(tabs)/index.tsx</span>
+      </AnimatedSpan>
+    </Terminal>
   );
 }
