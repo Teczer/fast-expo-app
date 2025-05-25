@@ -1,84 +1,65 @@
-# Turborepo starter
+# Fast Expo App CLI
 
-This Turborepo starter is maintained by the Turborepo core team.
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
 
-## Using this example
+<p align="center">
+  Get started by running <b><code>npx fast-expo-app@latest</code></b>
+</p>
 
-Run the following command:
+## Simple & Fast Starter for Expo, Nativewind, and TypeScript
 
-```sh
-npx create-turbo@latest
-```
+![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1748088179/FAST-EXPO-APP.png)
+<p align="center">
+<b>
+This boilerplate provides a fast and modern setup for building React Native applications with Expo, NativeWind, and TypeScript. It's designed to enhance developer experience and streamline your development process.a
+</b>
+</p>
 
-## What's inside?
+### Features
 
-This Turborepo includes the following packages/apps:
+Developer experience first:
 
-### Apps and Packages
+- ⚡ [Expo](https://expo.dev) for mobile development
+- ⚛️ [React Native](https://reactnative.dev) for building native apps using React
+- 🔥 Type checking [TypeScript](https://www.typescriptlang.org)
+- 💎 Integrate with [NativeWind](https://www.nativewind.dev), Tailwind CSS for React Native
+- 🌜 Light/Dark mode already setup with toggle
+- 📊 MMKV (~30x faster than AsyncStorage and not Async usage)
+- 📁 File-based routing with Expo Router
+- 📏 Linter with [ESLint](https://eslint.org)
+- 💖 Code Formatter with [Prettier](https://prettier.io)
+- 🤡 Unit Testing with Jest
+- 💡 Absolute Imports using `@` prefix
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Last Boilerplate Update
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+- ⚡ Expo SDK 53 (Including Expo Router 3.5, Expo UI...) + update all libraries
+- ⚛️ React Native 0.79 (Including New Arch, Android Edge-to-Edge...)
+- 💎 NativeWind 4.0
+- 🥟 Bun
 
-### Utilities
+![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1748011077/UPDATE.png)
 
-This Turborepo has some additional tools already setup for you:
+### Requirements
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- Node.js 22+ (Recommended LTS)
+- BUN IS VERY RECOMMENDED
 
-### Build
+### Contributions
 
-To build all apps and packages, run the following command:
+Contributions are welcome! If you find a bug or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/Teczer/expo-react-native-nativewind-typescript-boilerplate/issues). You can also submit pull requests with enhancements or fixes.
 
-```
-cd my-turborepo
-pnpm build
-```
+### License
 
-### Develop
+Licensed under the MIT License, Copyright © 2025
 
-To develop all apps and packages, run the following command:
+See [LICENSE](LICENSE) for more information.
 
-```
-cd my-turborepo
-pnpm dev
-```
+---
 
-### Remote Caching
+Made with ♥ by [Teczer](https://mehdihattou.com/)
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+[downloads-image]: https://img.shields.io/npm/dm/fast-expo-app?color=364fc7&logoColor=364fc7
+[npm-url]: https://www.npmjs.com/package/fast-expo-app
+[npm-image]: https://img.shields.io/npm/v/fast-expo-app?color=0b7285&logoColor=0b7285
