@@ -1,22 +1,18 @@
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { OrbitingCirclesDemo } from "@/components/OrbitingCircleDemo";
+import { SparklesText } from "@/components/magicui/sparkles-text";
 import { TerminalDemo } from "@/components/TerminalDemo";
-import { cn } from "@/lib/utils";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-black flex flex-col gap-10 items-center justify-center py-10">
-      <InteractiveGridPattern
-        className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
-        )}
-        width={20}
-        height={20}
-        squares={[80, 80]}
-        squaresClassName="hover:fill-blue-500"
-      />
-      {/* <TerminalDemo />
-      <OrbitingCirclesDemo /> */}
+    <main className="relative min-h-screen bg-black py-10">
+      <BackgroundLines className="relative flex flex-col gap-10 items-center justify-center">
+        <SparklesText className="bg-black absolute top-20 self-center text-center w-1/2">
+          The fastest way to create an{" "}
+          <span className="text-orange-400">Expo</span> App
+        </SparklesText>
+        <TerminalDemo />
+        {/* <OrbitingCirclesDemo /> */}
+      </BackgroundLines>
     </main>
   );
 }

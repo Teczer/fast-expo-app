@@ -45,15 +45,15 @@ export function TerminalDemo() {
         <span>✔ Absolute imports with @ prefix enabled</span>
       </AnimatedSpan>
 
-      <AnimatedSpan delay={7000} className="text-green-500">
+      <AnimatedSpan delay={6500} className="text-green-500">
         <span>✔ Dependencies installed via Bun</span>
       </AnimatedSpan>
 
-      <AnimatedSpan delay={8000} className="text-blue-400">
+      <AnimatedSpan delay={7000} className="text-blue-400">
         <span>✨ Your fast-expo-app is ready! Build, test, ship.</span>
       </AnimatedSpan>
 
-      <AnimatedSpan delay={8500} className="text-muted-foreground">
+      <AnimatedSpan delay={7500} className="text-muted-foreground">
         <span>💡 Tip: Start coding in app/(tabs)/index.tsx</span>
       </AnimatedSpan>
     </Terminal>
