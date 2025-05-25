@@ -1,3 +1,4 @@
+import { RainbowButton } from "@/components/magicui/rainbow-button";
 import { SparklesText } from "@/components/magicui/sparkles-text";
 import { TerminalDemo } from "@/components/TerminalDemo";
 import { BackgroundLines } from "@/components/ui/background-lines";
@@ -10,6 +11,7 @@ export default function Home() {
           The fastest way to create an{" "}
           <span className="text-orange-400">Expo</span> App
         </SparklesText>
+        <RainbowButton>Rainbow Button</RainbowButton>
         <TerminalDemo />
         {/* <OrbitingCirclesDemo /> */}
       </BackgroundLines>

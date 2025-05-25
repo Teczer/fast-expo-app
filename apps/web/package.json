@@ -9,6 +9,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/postcss": "^4.1.7",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
