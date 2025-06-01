@@ -6,6 +6,11 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  authors: [{ name: "Mehdi Hattou | Teczer", url: "https://mehdi-hattou.com" }],
+  category: "developer tools",
+  themeColor: "#000000",
+  generator: "Next.js",
+  applicationName: "Fast Expo App",
   title: "Fast Expo App",
   description:
     "Instantly generate a modern Expo app with this powerful CLI tool. Kickstart your mobile projects with Expo, Nativewind, TypeScript, React Native, MMKV, Prettier, ESLint, Jest, and more—all preconfigured with best practices. Save time and focus on building, not setting up.",
@@ -98,7 +103,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "https://fast-expo-app-web.vercel.app/",
     creator: "@Mehdi_Hattou",
-    images: "https://mehdihattou.com/Mehdoche.jpg",
+    images: "https://res.cloudinary.com/dw3mwclgk/image/upload/v1748809561/fast-expo-app-icon.png",
     title: "Fast Expo App",
     description:
       "Instantly generate a modern Expo app with this powerful CLI tool. Kickstart your mobile projects with Expo, Nativewind, TypeScript, React Native, MMKV, Prettier, ESLint, Jest, and more—all preconfigured with best practices. Save time and focus on building, not setting up.",
