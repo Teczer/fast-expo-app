@@ -33,7 +33,7 @@ async function main() {
       cache: false,
       force: true,
       verbose: true,
-    }
+    },
   );
 
   await emitter.clone(projectName);

@@ -8,7 +8,7 @@ const pkg = JSON.parse(fs.readFileSync(PACKAGE_PATH, "utf-8"));
 
 function bumpVersion(
   version: string,
-  type: "patch" | "minor" | "major" = "patch"
+  type: "patch" | "minor" | "major" = "patch",
 ) {
   const [major, minor, patch] = version.split(".").map(Number);
   if (type === "major") return `${major + 1}.0.0`;
@@ -18,7 +18,7 @@ function bumpVersion(
 
 const newVersion = bumpVersion(
   pkg.version,
-  (process.argv[2] as any) || "patch"
+  (process.argv[2] as any) || "patch",
 );
 pkg.version = newVersion;
 fs.writeFileSync(PACKAGE_PATH, JSON.stringify(pkg, null, 2));

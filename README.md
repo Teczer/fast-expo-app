@@ -10,6 +10,7 @@
 ## Simple & Fast Starter for Expo, Nativewind, and TypeScript
 
 ![](https://res.cloudinary.com/dw3mwclgk/image/upload/v1748088179/FAST-EXPO-APP.png)
+
 <p align="center">
 <b>
 This boilerplate provides a fast and modern setup for building React Native applications with Expo, NativeWind, and TypeScript. It's designed to enhance developer experience and streamline your development process.a

@@ -6,4 +6,8 @@ module.exports = {
   parserOptions: {
     project: true,
   },
+  plugins: ["tailwindcss"], // ← ajoute cette ligne
+  rules: {
+    "tailwindcss/no-contradicting-classname": "error", // ← ajoute cette ligne
+  },
 };

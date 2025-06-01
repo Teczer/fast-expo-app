@@ -72,7 +72,7 @@ export const BackgroundBeamsWithCollision = ({
       className={cn(
         "h-screen md:h-screen bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-950 dark:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
         // h-screen if you want bigger
-        className
+        className,
       )}
     >
       {beams.map((beam) => (
@@ -201,7 +201,7 @@ const CollisionMechanism = React.forwardRef<
         }}
         className={cn(
           "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
-          beamOptions.className
+          beamOptions.className,
         )}
       />
       <AnimatePresence>
