@@ -44,6 +44,7 @@ Developer experience first:
 
 ### Requirements
 
+- Java 17+
 - Node.js 22+ (Recommended LTS)
 - BUN IS VERY RECOMMENDED
 
