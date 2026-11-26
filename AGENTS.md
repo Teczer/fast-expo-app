@@ -199,7 +199,8 @@ The generated template now targets **Expo SDK 58** (React Native 0.88.1, React 1
 
 - `global.css` in `app/` folder with `@layer theme` + `@variant` blocks
 - `metro.config.js` uses `withUniwindConfig` with `extraThemes: ['premium']` and `dtsFile`
-- `types/uniwind.d.ts` references `uniwind/types` so `tsc --noEmit` passes before the first Metro run (Metro regenerates `app/uniwind-types.d.ts`)
+- `types/uniwind.d.ts` references `uniwind/types` so `tsc --noEmit` passes before the first Metro run
+- `dtsFile` points at the project root (`./uniwind-types.d.ts`) — inside `app/` Expo Router treats it as a route and warns about a missing default export
 - `useUniwindTheme()` hook for theme management with MMKV persistence (`Uniwind.setTheme('premium')` supported)
 
 ---

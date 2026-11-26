@@ -101,3 +101,9 @@ were resolved from the npm registry on the same date.
    `StatusBar.backgroundColor/translucent`. The template does not use them.
 8. **Android** — R8 is enabled by default for release builds (documented in the changelog).
 9. **Node.js** — 22.13+ / 24.3+ / 26+ (`engines.node` stays `>=22.13.0`).
+10. **`unstable_settings.initialRouteName` → `anchor`** — SDK 58 logs a deprecation warning for the old key.
+11. **Uniwind `dtsFile` moved out of `app/`** — `app/uniwind-types.d.ts` is picked up by Expo Router as a route
+    (`Route "./uniwind-types.d.ts" is missing the required default export`). It now lives at the project root.
+12. **`+not-found` above a modal** — SDK 58 warns that a `+not-found` route has no presentation and inherits the
+    modal presentation. Forcing `presentation: 'card'` makes it *worse* (the screen is pushed behind the modal),
+    so the template keeps the default and the notice is benign.

@@ -306,7 +306,7 @@ const config = getDefaultConfig(__dirname);
 
 module.exports = withUniwindConfig(config, {
   cssEntryFile: './app/global.css',
-  dtsFile: './app/uniwind-types.d.ts',
+  dtsFile: './uniwind-types.d.ts',
   extraThemes: ['premium'],
 });
 `;
