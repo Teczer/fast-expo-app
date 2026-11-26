@@ -196,7 +196,14 @@ async function main() {
   }
 
   // Show selected options
-  const stylingLabel = styling === 'nativewind' ? 'NativeWind' : styling === 'unistyles' ? 'Unistyles' : styling === 'uniwind' ? 'Uniwind' : 'StyleSheet';
+  const stylingLabel =
+    styling === 'nativewind'
+      ? 'NativeWind'
+      : styling === 'unistyles'
+        ? 'Unistyles'
+        : styling === 'uniwind'
+          ? 'Uniwind'
+          : 'StyleSheet';
   p.note(
     [
       `Frontend: Expo + ${stylingLabel}`,

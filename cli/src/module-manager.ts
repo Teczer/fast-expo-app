@@ -35,19 +35,19 @@ export class ModuleManager {
    */
   getQueryProviderModule(config: ModuleConfig): string {
     const queryProviderPath = path.join(this.modulesPath, 'query-provider');
-    
+
     if (!config.hasReactQuery) {
       return path.join(queryProviderPath, 'without-react-query.tsx');
     }
-    
+
     if (config.hasMMKV && config.hasDevClient) {
       return path.join(queryProviderPath, 'with-react-query-mmkv-dev.tsx');
     }
-    
+
     if (config.hasMMKV) {
       return path.join(queryProviderPath, 'with-react-query-mmkv.tsx');
     }
-    
+
     return path.join(queryProviderPath, 'with-react-query.tsx');
   }
 
@@ -58,7 +58,7 @@ export class ModuleManager {
     if (!config.hasZustand) {
       return null;
     }
-    
+
     const zustandPath = path.join(this.modulesPath, 'zustand');
     return config.hasMMKV
       ? path.join(zustandPath, 'with-mmkv.ts')
@@ -78,7 +78,6 @@ export class ModuleManager {
     }
     return path.join(layoutPath, 'with-nativewind.tsx');
   }
-
 
   /**
    * Get the toggle theme component module file path based on styling
@@ -185,16 +184,16 @@ export class ModuleManager {
     if (!fs.existsSync(modulePath)) {
       throw new Error(`Module file not found: ${modulePath}`);
     }
-    
+
     // Ensure target directory exists
     const targetDir = path.dirname(targetPath);
     if (!fs.existsSync(targetDir)) {
       fs.mkdirSync(targetDir, { recursive: true });
     }
-    
+
     // Read the file content
     let content = fs.readFileSync(modulePath, 'utf-8');
-    
+
     // Replace imports if MMKV is selected and we're copying to mmkvStorage.ts
     if (config?.hasMMKV && targetPath.endsWith('mmkvStorage.ts')) {
       // No need to change imports, they're already correct
@@ -202,7 +201,7 @@ export class ModuleManager {
       // If MMKV is selected but we're copying to another file, update imports
       content = content.replace(/from ['"]@\/lib\/storage['"]/g, "from '@/lib/mmkvStorage'");
     }
-    
+
     fs.writeFileSync(targetPath, content);
   }
 
@@ -295,4 +294,3 @@ export class ModuleManager {
     return toRemove;
   }
 }
-

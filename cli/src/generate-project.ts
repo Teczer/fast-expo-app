@@ -132,12 +132,12 @@ export async function generateProject(
     const themeModule = path.join(manager.modulesPath, 'styling', 'theme.ts');
     const themeTarget = path.join(targetPath, 'theme.ts');
     manager.copyModule(themeModule, themeTarget, config);
-    
+
     // Generate breakpoints.ts (must be before unistyles.ts)
     const breakpointsModule = path.join(manager.modulesPath, 'styling', 'breakpoints.ts');
     const breakpointsTarget = path.join(targetPath, 'breakpoints.ts');
     manager.copyModule(breakpointsModule, breakpointsTarget, config);
-    
+
     // Generate unistyles.ts (main config) at root - reads theme.ts and breakpoints.ts
     p.log.step('Generating unistyles.ts configuration...');
     const unistylesConfigModule = path.join(manager.modulesPath, 'styling', 'unistyles-config.ts');
@@ -148,12 +148,9 @@ export async function generateProject(
       /from ['"]@\/breakpoints['"]/g,
       "from './breakpoints'"
     );
-    unistylesContent = unistylesContent.replace(
-      /from ['"]@\/theme['"]/g,
-      "from './theme'"
-    );
+    unistylesContent = unistylesContent.replace(/from ['"]@\/theme['"]/g, "from './theme'");
     fs.writeFileSync(unistylesConfigTarget, unistylesContent);
-    
+
     // Generate index.js at root to import unistyles before expo-router/entry
     p.log.step('Generating index.js entry point...');
     const indexJsContent = `import "./unistyles";
@@ -161,10 +158,10 @@ import "expo-router/entry";
 `;
     const indexJsTarget = path.join(targetPath, 'index.js');
     fs.writeFileSync(indexJsTarget, indexJsContent);
-    
+
     // Update package.json to use index.js as main entry point
     pkg.main = 'index.js';
-    
+
     // Generate container component for Unistyles (kebab-case)
     p.log.step('Generating container component...');
     const containerModule = path.join(manager.modulesPath, 'components', 'container.tsx');
@@ -175,32 +172,32 @@ import "expo-router/entry";
       fs.mkdirSync(componentsDir, { recursive: true });
     }
     manager.copyModule(containerModule, containerTarget, config);
-    
+
     // Generate theme-toggle component (kebab-case)
     const themeToggleModule = manager.getToggleThemeModule(config);
     const themeToggleTarget = path.join(targetPath, 'components', 'theme-toggle.tsx');
     manager.copyModule(themeToggleModule, themeToggleTarget, config);
-    
+
     // Generate (tabs)/_layout.tsx
     const tabsLayoutModule = manager.getTabsLayoutModule(config);
     const tabsLayoutTarget = path.join(targetPath, 'app', '(tabs)', '_layout.tsx');
     manager.copyModule(tabsLayoutModule, tabsLayoutTarget, config);
-    
+
     // Generate (tabs)/index.tsx
     const indexScreenModule = manager.getIndexScreenModule(config);
     const indexScreenTarget = path.join(targetPath, 'app', '(tabs)', 'index.tsx');
     manager.copyModule(indexScreenModule, indexScreenTarget, config);
-    
+
     // Generate (tabs)/settings.tsx
     const settingsScreenModule = manager.getSettingsScreenModule(config);
     const settingsScreenTarget = path.join(targetPath, 'app', '(tabs)', 'settings.tsx');
     manager.copyModule(settingsScreenModule, settingsScreenTarget, config);
-    
+
     // Generate +not-found.tsx
     const notFoundScreenModule = manager.getNotFoundScreenModule(config);
     const notFoundScreenTarget = path.join(targetPath, 'app', '+not-found.tsx');
     manager.copyModule(notFoundScreenModule, notFoundScreenTarget, config);
-    
+
     // Generate modal.tsx
     const modalScreenModule = manager.getModalScreenModule(config);
     const modalScreenTarget = path.join(targetPath, 'app', 'modal.tsx');
@@ -208,7 +205,7 @@ import "expo-router/entry";
   } else if (config.styling === 'uniwind') {
     // Generate Uniwind configuration files
     p.log.step('Generating Uniwind configuration...');
-    
+
     // Generate uniwind-themes.ts in constants/
     const themesModule = path.join(manager.modulesPath, 'constants', 'uniwind-themes.ts');
     const themesTarget = path.join(targetPath, 'constants', 'uniwind-themes.ts');
@@ -217,14 +214,14 @@ import "expo-router/entry";
       fs.mkdirSync(constantsDir, { recursive: true });
     }
     manager.copyModule(themesModule, themesTarget, config);
-    
+
     // Generate themes.ts for theme configs (shared with unistyles)
     const themeConfigsModule = path.join(manager.modulesPath, 'constants', 'themes.ts');
     const themeConfigsTarget = path.join(targetPath, 'constants', 'themes.ts');
     if (fs.existsSync(themeConfigsModule)) {
       manager.copyModule(themeConfigsModule, themeConfigsTarget, config);
     }
-    
+
     // Generate global.css for Uniwind in app/ folder
     p.log.step('Generating global.css in app folder...');
     const globalCssModule = path.join(manager.modulesPath, 'styling', 'uniwind-global.css');
@@ -232,7 +229,7 @@ import "expo-router/entry";
     if (fs.existsSync(globalCssModule)) {
       manager.copyModule(globalCssModule, globalCssTarget, config);
     }
-    
+
     // Type augmentation for `className` props — Metro regenerates app/uniwind-types.d.ts on start,
     // but a committed reference keeps `tsc --noEmit` green before the first run
     const uniwindTypesTarget = path.join(targetPath, 'types', 'uniwind.d.ts');
@@ -240,23 +237,20 @@ import "expo-router/entry";
     if (!fs.existsSync(uniwindTypesDir)) {
       fs.mkdirSync(uniwindTypesDir, { recursive: true });
     }
-    fs.writeFileSync(
-      uniwindTypesTarget,
-      `/// <reference types="uniwind/types" />\n`,
-    );
+    fs.writeFileSync(uniwindTypesTarget, `/// <reference types="uniwind/types" />\n`);
 
     // Remove old global.css from root if exists
     const oldGlobalCss = path.join(targetPath, 'global.css');
     if (fs.existsSync(oldGlobalCss)) {
       fs.rmSync(oldGlobalCss, { force: true });
     }
-    
+
     // Remove tailwind.config.js (not needed with Tailwind v4)
     const tailwindConfigPath = path.join(targetPath, 'tailwind.config.js');
     if (fs.existsSync(tailwindConfigPath)) {
       fs.rmSync(tailwindConfigPath, { force: true });
     }
-    
+
     // Generate container component for Uniwind (kebab-case)
     p.log.step('Generating container component...');
     const containerModule = path.join(manager.modulesPath, 'components', 'container-uniwind.tsx');
@@ -266,37 +260,37 @@ import "expo-router/entry";
       fs.mkdirSync(componentsDir, { recursive: true });
     }
     manager.copyModule(containerModule, containerTarget, config);
-    
+
     // Generate theme-toggle component (kebab-case)
     const themeToggleModule = manager.getToggleThemeModule(config);
     const themeToggleTarget = path.join(targetPath, 'components', 'theme-toggle.tsx');
     manager.copyModule(themeToggleModule, themeToggleTarget, config);
-    
+
     // Generate (tabs)/_layout.tsx
     const tabsLayoutModule = manager.getTabsLayoutModule(config);
     const tabsLayoutTarget = path.join(targetPath, 'app', '(tabs)', '_layout.tsx');
     manager.copyModule(tabsLayoutModule, tabsLayoutTarget, config);
-    
+
     // Generate (tabs)/index.tsx
     const indexScreenModule = manager.getIndexScreenModule(config);
     const indexScreenTarget = path.join(targetPath, 'app', '(tabs)', 'index.tsx');
     manager.copyModule(indexScreenModule, indexScreenTarget, config);
-    
+
     // Generate (tabs)/settings.tsx
     const settingsScreenModule = manager.getSettingsScreenModule(config);
     const settingsScreenTarget = path.join(targetPath, 'app', '(tabs)', 'settings.tsx');
     manager.copyModule(settingsScreenModule, settingsScreenTarget, config);
-    
+
     // Generate +not-found.tsx
     const notFoundScreenModule = manager.getNotFoundScreenModule(config);
     const notFoundScreenTarget = path.join(targetPath, 'app', '+not-found.tsx');
     manager.copyModule(notFoundScreenModule, notFoundScreenTarget, config);
-    
+
     // Generate modal.tsx
     const modalScreenModule = manager.getModalScreenModule(config);
     const modalScreenTarget = path.join(targetPath, 'app', 'modal.tsx');
     manager.copyModule(modalScreenModule, modalScreenTarget, config);
-    
+
     // Update metro.config.js for Uniwind with extraThemes
     const metroConfigPath = path.join(targetPath, 'metro.config.js');
     const metroConfig = `const { getDefaultConfig } = require('expo/metro-config');
@@ -311,7 +305,7 @@ module.exports = withUniwindConfig(config, {
 });
 `;
     fs.writeFileSync(metroConfigPath, metroConfig);
-    
+
     // Update babel.config.js for Uniwind
     const babelConfigPath = path.join(targetPath, 'babel.config.js');
     const babelConfig = `module.exports = function (api) {
@@ -332,38 +326,42 @@ module.exports = withUniwindConfig(config, {
       const tabsLayoutTarget = path.join(targetPath, 'app', '(tabs)', '_layout.tsx');
       manager.copyModule(tabsLayoutModule, tabsLayoutTarget, config);
     }
-    
+
     // Generate (tabs)/index.tsx for NativeWind
     const indexScreenModule = manager.getIndexScreenModule(config);
     if (indexScreenModule && fs.existsSync(indexScreenModule)) {
       const indexScreenTarget = path.join(targetPath, 'app', '(tabs)', 'index.tsx');
       manager.copyModule(indexScreenModule, indexScreenTarget, config);
     }
-    
+
     // Generate (tabs)/settings.tsx for NativeWind
     const settingsScreenModule = manager.getSettingsScreenModule(config);
     if (settingsScreenModule && fs.existsSync(settingsScreenModule)) {
       const settingsScreenTarget = path.join(targetPath, 'app', '(tabs)', 'settings.tsx');
       manager.copyModule(settingsScreenModule, settingsScreenTarget, config);
     }
-    
+
     // Generate +not-found.tsx for NativeWind
     const notFoundScreenModule = manager.getNotFoundScreenModule(config);
     if (notFoundScreenModule && fs.existsSync(notFoundScreenModule)) {
       const notFoundScreenTarget = path.join(targetPath, 'app', '+not-found.tsx');
       manager.copyModule(notFoundScreenModule, notFoundScreenTarget, config);
     }
-    
+
     // Generate modal.tsx for NativeWind
     const modalScreenModule = manager.getModalScreenModule(config);
     if (modalScreenModule && fs.existsSync(modalScreenModule)) {
       const modalScreenTarget = path.join(targetPath, 'app', 'modal.tsx');
       manager.copyModule(modalScreenModule, modalScreenTarget, config);
     }
-    
+
     // Generate container component for NativeWind (kebab-case)
     p.log.step('Generating container component...');
-    const containerNativeWindModule = path.join(manager.modulesPath, 'components', 'container-nativewind.tsx');
+    const containerNativeWindModule = path.join(
+      manager.modulesPath,
+      'components',
+      'container-nativewind.tsx'
+    );
     const containerTarget = path.join(targetPath, 'components', 'container.tsx');
     // Ensure components directory exists
     const componentsDir = path.dirname(containerTarget);
@@ -372,7 +370,7 @@ module.exports = withUniwindConfig(config, {
     }
     manager.copyModule(containerNativeWindModule, containerTarget, config);
   }
-  
+
   // 9. Generate components (external-link, colors) - these are generated for both styling options
   // 9a. Generate external-link component (kebab-case)
   p.log.step('Generating external-link component...');
@@ -385,7 +383,7 @@ module.exports = withUniwindConfig(config, {
     }
     manager.copyModule(externalLinkModule, externalLinkTarget, config);
   }
-  
+
   // 9b. Generate themes constants for Unistyles (kebab-case)
   if (config.styling === 'unistyles') {
     p.log.step('Generating themes constants...');
@@ -399,7 +397,7 @@ module.exports = withUniwindConfig(config, {
       manager.copyModule(themesModule, themesTarget, config);
     }
   }
-  
+
   // 9c. Generate colors utils for NativeWind (kebab-case)
   if (config.styling === 'nativewind') {
     p.log.step('Generating colors utilities...');
@@ -413,7 +411,7 @@ module.exports = withUniwindConfig(config, {
       manager.copyModule(colorsModule, colorsTarget, config);
     }
   }
-  
+
   // 10. Generate toggle theme component based on styling (kebab-case)
   p.log.step('Generating theme-toggle component...');
   const toggleThemeModule = manager.getToggleThemeModule(config);
@@ -425,14 +423,14 @@ module.exports = withUniwindConfig(config, {
     }
     manager.copyModule(toggleThemeModule, toggleThemeTarget, config);
   }
-  
+
   // 11. Remove old component files (PascalCase -> kebab-case)
   p.log.step('Cleaning up old component files...');
   const oldToggleTheme = path.join(targetPath, 'components', 'ToggleTheme.tsx');
   if (fs.existsSync(oldToggleTheme)) {
     fs.rmSync(oldToggleTheme, { force: true });
   }
-  
+
   // Only remove old Container.tsx if we're using NativeWind (container is for Unistyles and Uniwind)
   if (config.styling === 'nativewind') {
     const oldContainer = path.join(targetPath, 'components', 'Container.tsx');
@@ -440,17 +438,15 @@ module.exports = withUniwindConfig(config, {
       fs.rmSync(oldContainer, { force: true });
     }
   }
-  
+
   // Remove old PascalCase files
-  const oldFiles = [
-    path.join(targetPath, 'components', 'ExternalLink.tsx'),
-  ];
+  const oldFiles = [path.join(targetPath, 'components', 'ExternalLink.tsx')];
   oldFiles.forEach((file) => {
     if (fs.existsSync(file)) {
       fs.rmSync(file, { force: true });
     }
   });
-  
+
   // 12. Update app.json with project name
   p.log.step('Updating app.json...');
   const appJsonPath = path.join(targetPath, 'app.json');
