@@ -39,14 +39,14 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color as string} />,
           title: 'Home',
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color as string} />,
           title: 'Settings',
         }}
       />

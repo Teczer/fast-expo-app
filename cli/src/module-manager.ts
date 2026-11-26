@@ -213,38 +213,38 @@ export class ModuleManager {
     const deps: Record<string, string> = {};
 
     if (config.hasZustand) {
-      deps['zustand'] = '5.0.14';
+      deps['zustand'] = '5.1.0';
     }
 
     if (config.hasReactQuery) {
-      deps['@tanstack/react-query'] = '5.101.4';
-      deps['@tanstack/react-query-persist-client'] = '5.101.4';
-      deps['@tanstack/query-sync-storage-persister'] = '5.101.4';
+      deps['@tanstack/react-query'] = '5.108.4';
+      deps['@tanstack/react-query-persist-client'] = '5.108.4';
+      deps['@tanstack/query-sync-storage-persister'] = '5.108.4';
     }
 
     if (config.hasDevClient) {
-      deps['expo-dev-client'] = '~57.0.11';
+      deps['expo-dev-client'] = '~58.0.21';
     }
 
     // Always add these dependencies
-    deps['expo-haptics'] = '~57.0.1';
-    deps['react-native-edge-to-edge'] = '1.8.1';
-    deps['react-native-worklets'] = '0.10.1';
-    deps['react-native-gesture-handler'] = '~2.32.0';
+    deps['expo-haptics'] = '~58.0.8';
+    deps['react-native-edge-to-edge'] = '1.8.2';
+    deps['react-native-worklets'] = '0.13.0';
+    deps['react-native-gesture-handler'] = '~3.3.0';
 
     if (config.styling === 'unistyles') {
-      deps['react-native-unistyles'] = '3.3.0';
-      deps['react-native-keyboard-controller'] = '1.21.9';
+      deps['react-native-unistyles'] = '3.9.0';
+      deps['react-native-keyboard-controller'] = '1.22.7';
     }
 
     if (config.styling === 'nativewind') {
-      deps['nativewind'] = '4.2.6';
+      deps['nativewind'] = '4.2.7';
     }
 
     if (config.styling === 'uniwind') {
-      deps['uniwind'] = '1.10.1';
-      deps['tailwindcss'] = '4.1.16';
-      deps['react-native-keyboard-controller'] = '1.21.9';
+      deps['uniwind'] = '1.14.0';
+      deps['tailwindcss'] = '4.3.5';
+      deps['react-native-keyboard-controller'] = '1.22.7';
     }
 
     return deps;

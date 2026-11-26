@@ -1,5 +1,12 @@
 import { createMMKV } from 'react-native-mmkv';
-import { StateStorage } from 'zustand/middleware';
+
+// Structurally identical to zustand's `StateStorage`, declared locally so the
+// MMKV storage module does not depend on zustand being selected.
+type StateStorage = {
+  getItem: (name: string) => string | null;
+  setItem: (name: string, value: string) => void;
+  removeItem: (name: string) => void;
+};
 
 export const storage = createMMKV();
 export const encryptedStorage = createMMKV();

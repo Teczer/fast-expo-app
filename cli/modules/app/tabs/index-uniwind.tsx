@@ -17,7 +17,7 @@ export default function TabOneScreen() {
       <View className="mt-2 mx-5 items-center">
         <ExternalLink href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
           <Text className="text-center text-primary">
-            Tap here if your app doesn't automatically update after making changes
+            Tap here if your app doesn&apos;t automatically update after making changes
           </Text>
         </ExternalLink>
       </View>

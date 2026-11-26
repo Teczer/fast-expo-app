@@ -233,6 +233,18 @@ import "expo-router/entry";
       manager.copyModule(globalCssModule, globalCssTarget, config);
     }
     
+    // Type augmentation for `className` props — Metro regenerates app/uniwind-types.d.ts on start,
+    // but a committed reference keeps `tsc --noEmit` green before the first run
+    const uniwindTypesTarget = path.join(targetPath, 'types', 'uniwind.d.ts');
+    const uniwindTypesDir = path.dirname(uniwindTypesTarget);
+    if (!fs.existsSync(uniwindTypesDir)) {
+      fs.mkdirSync(uniwindTypesDir, { recursive: true });
+    }
+    fs.writeFileSync(
+      uniwindTypesTarget,
+      `/// <reference types="uniwind/types" />\n`,
+    );
+
     // Remove old global.css from root if exists
     const oldGlobalCss = path.join(targetPath, 'global.css');
     if (fs.existsSync(oldGlobalCss)) {
@@ -473,32 +485,21 @@ async function handleStyling(config: ModuleConfig, targetPath: string, pkg: any)
     if (fs.existsSync(nativewindEnv)) {
       fs.rmSync(nativewindEnv, { force: true });
     }
-    // Update metro.config.js
+    // Update metro.config.js — Unistyles 3.9 replaces the Babel plugin with a Metro resolver
     const metroConfigPath = path.join(targetPath, 'metro.config.js');
     const metroConfig = `const { getDefaultConfig } = require('expo/metro-config');
+const { withUnistylesConfig } = require('react-native-unistyles/metro');
 
-const config = getDefaultConfig(__dirname);
-
-module.exports = config;
+module.exports = withUnistylesConfig(getDefaultConfig(__dirname));
 `;
     fs.writeFileSync(metroConfigPath, metroConfig);
-    // Update babel.config.js with Unistyles plugin
+    // Update babel.config.js
     const babelConfigPath = path.join(targetPath, 'babel.config.js');
     const babelConfig = `module.exports = function (api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
-    plugins: [
-      [
-        'react-native-unistyles/plugin',
-        {
-          root: 'app',
-          autoProcessRoot: 'app',
-          autoProcessImports: ['@/components'],
-        },
-      ],
-      'react-native-worklets/plugin',
-    ],
+    plugins: ['react-native-worklets/plugin'],
   };
 };
 `;
@@ -549,7 +550,7 @@ async function removeUnselectedModules(
     if (pkg.jest) {
       delete pkg.jest;
     }
-    ['jest', 'jest-expo', 'react-test-renderer'].forEach((dep) => {
+    ['jest', 'jest-expo', 'react-test-renderer', '@testing-library/react-native'].forEach((dep) => {
       if (pkg.devDependencies?.[dep]) {
         delete pkg.devDependencies[dep];
       }

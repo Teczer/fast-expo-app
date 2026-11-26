@@ -1,4 +1,5 @@
-import { Link, Tabs } from 'expo-router';
+import { Link } from 'expo-router';
+import { Tabs } from 'expo-router/js-tabs';
 import { Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -7,10 +8,7 @@ import { getColor } from '@/utils/colors';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
+function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
@@ -46,7 +44,7 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color as string} />,
           title: 'Home',
         }}
       />
@@ -55,7 +53,7 @@ export default function TabLayout() {
         options={{
           headerShown: true,
           headerRight: () => <ThemeToggle />,
-          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color as string} />,
           title: 'Settings',
         }}
       />
