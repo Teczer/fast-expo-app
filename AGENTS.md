@@ -180,11 +180,11 @@ The generated template now targets **Expo SDK 58** (React Native 0.88.1, React 1
 
 ### Updated Styling Options
 
-| Option | Version |
-| --- | --- |
-| NativeWind | 4.2.7 |
-| Unistyles | 3.9.0 |
-| Uniwind | 1.14.0 |
+| Option     | Version |
+| ---------- | ------- |
+| NativeWind | 4.2.7   |
+| Unistyles  | 3.9.0   |
+| Uniwind    | 1.14.0  |
 
 #### Uniwind Dependencies
 
