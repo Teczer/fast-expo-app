@@ -35,33 +35,34 @@ That's it! The CLI will guide you through the setup process and let you choose w
 
 ### 🎯 Core Stack (Always Included)
 
-- ⚡ **Expo SDK 57** - Latest Expo with New Architecture (always on)
-- ⚛️ **React Native 0.86** - Modern React Native with Fabric renderer
+- ⚡ **Expo SDK 58** - Latest Expo with New Architecture (always on)
+- ⚛️ **React Native 0.88** - Modern React Native with Fabric renderer
 - 🔥 **TypeScript 6.0** - Strict type-safety out of the box
-- 📁 **Expo Router** - File-based routing with typed routes (`expo-router/react-navigation`)
+- 📁 **Expo Router 58** - File-based routing with typed routes (`DarkTheme` / `ThemeProvider` come from `expo-router`)
 - 💾 **MMKV v4.3** - Ultra-fast storage with Nitro Modules (~30x faster than AsyncStorage)
 - 📱 **Edge-to-edge** - Enabled by default on Android 16+
 
 ### 🎨 Styling Options (Choose One)
 
-**NativeWind v4.2** 🌊
+**NativeWind v4.2.7** 🌊
 
 - Tailwind CSS v3.4 for React Native
 - Utility-first CSS framework
 - 2-theme system (light/dark)
 - Dark mode with persistent storage
 
-**Unistyles v3.3** 💎
+**Unistyles v3.9** 💎
 
 - Type-safe styling solution
+- Metro resolver (`withUnistylesConfig`) — no Babel plugin needed since 3.9
 - 3-theme system (light/dark/premium)
 - Runtime theme switching
 - Breakpoints support
 - Better performance
 
-**Uniwind v1.10** ✨
+**Uniwind v1.14** ✨
 
-- Tailwind CSS v4 for React Native
+- Tailwind CSS v4.3 for React Native
 - Live theme switching with `Uniwind.setTheme()`
 - 3-theme system (light/dark/premium)
 - CSS variables for dynamic theming
@@ -139,7 +140,7 @@ The landing page built with Next.js, showcasing the CLI and providing documentat
 
 ### Prerequisites
 
-- **Node.js 22.13+** (required by Expo SDK 57)
+- **Node.js 22.13+** (required by Expo SDK 58)
 - **Bun** (highly recommended) or npm
 - **Java 17+**
 - **Xcode** (for iOS development)
@@ -247,18 +248,26 @@ We welcome contributions! Please see our [Contributing Guide](./docs/CONTRIBUTIN
 
 - **80+ GitHub Stars** ⭐
 - **26+ Forks** 🍴
+- **v5.0.0** - Expo SDK 58, RN 0.88, React 19.3, Uniwind 1.14, NativeWind 4.2.7, Unistyles 3.9
 - **v4.0.0** - Expo SDK 57, RN 0.86, Uniwind 1.10, NativeWind 4.2, Unistyles 3.3
 - **v3.2.0** - Added Uniwind styling with Tailwind v4
 - **Active Development** 🚀
 
-## 🆕 What's New in v4.0.0
+## 🆕 What's New in v5.0.0
+
+- ⚡ **Expo SDK 58** / React Native 0.88 / React 19.3
+- 🎨 **NativeWind 4.2.7**, **Unistyles 3.9.0**, **Uniwind 1.14.0**
+- 💾 **MMKV 4.3.2** + Nitro Modules 0.37.2
+- 🧭 **Expo Router 58** — `DarkTheme`, `DefaultTheme`, `ThemeProvider` and `useTheme` are imported from `expo-router`; tabs come from `expo-router/js-tabs`
+- 🧱 **CNG** - `ios/` and `android/` are generated with `npx expo prebuild`
+- 🔧 Node.js **22.13+** required (RN 0.88 also supports 24.3+ / 26+)
+- 🧪 Jest 30 (`jest-expo` 58) and `@testing-library/react-native` 14
+
+### v4.0.0 Highlights
 
 - ⚡ **Expo SDK 57** / React Native 0.86 / React 19.2
 - 🎨 **NativeWind 4.2.6**, **Unistyles 3.3.0**, **Uniwind 1.10.1**
-- 💾 **MMKV 4.3.2** + Nitro Modules 0.36.5
 - 🧭 **Expo Router** imports via `expo-router/react-navigation` (SDK 56+)
-- 🧱 **CNG** - `ios/` and `android/` are generated with `npx expo prebuild`
-- 🔧 Node.js **22.13+** required
 
 ### v3.2.0 Highlights
 

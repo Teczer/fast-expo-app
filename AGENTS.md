@@ -27,12 +27,12 @@
 2. A **production-ready boilerplate** with modern best practices
 3. A **landing website** to showcase the project
 
-### What's Included (v4.0.0)
+### What's Included (v5.0.0)
 
 #### Core Stack (Always Included)
 
-✅ **Expo SDK 57** with New Architecture always enabled  
-✅ **React Native 0.86** with Fabric renderer  
+✅ **Expo SDK 58** with New Architecture always enabled  
+✅ **React Native 0.88** with Fabric renderer  
 ✅ **TypeScript 6.0** with strict mode  
 ✅ **Expo Router** for file-based routing with typed routes  
 ✅ **MMKV v4.3** for ultra-fast storage (Nitro Modules, ~30x faster)  
@@ -41,9 +41,9 @@
 
 #### Styling Options (Choose One)
 
-✅ **NativeWind v4.2** - Tailwind CSS v3.4 for React Native with dark mode  
-✅ **Unistyles v3.3** - Type-safe styling with 3-theme system (light/dark/premium)  
-✅ **Uniwind v1.10** - Tailwind CSS v4 with live theme switching (light/dark/premium)
+✅ **NativeWind v4.2.7** - Tailwind CSS v3.4 for React Native with dark mode  
+✅ **Unistyles v3.9** - Type-safe styling with 3-theme system (light/dark/premium), Metro resolver  
+✅ **Uniwind v1.14** - Tailwind CSS v4 with live theme switching (light/dark/premium)
 
 #### Optional Modules
 
@@ -163,31 +163,35 @@ fast-expo-app-monorepo/
 
 ---
 
-## What's New in v4.0.0 🆕
+## What's New in v5.0.0 🆕
 
-### Expo SDK 57
+### Expo SDK 58
 
-The generated template now targets **Expo SDK 57** (React Native 0.86, React 19.2.3).
+The generated template now targets **Expo SDK 58** (React Native 0.88.1, React 19.3.0, TypeScript 6.0).
 
 - Native projects are **not committed** — run `npx expo prebuild` (CNG)
-- Expo Router themes import from `expo-router/react-navigation`
-- `EXPO_USE_FAST_RESOLVER` and `edgeToEdgeEnabled` were removed (obsolete since SDK 55)
-- Node.js **22.13+** is required
+- Expo Router themes (`DarkTheme`, `DefaultTheme`, `ThemeProvider`, `useTheme`) are imported from `expo-router`
+- Tab layouts import `Tabs` from `expo-router/js-tabs` (root `Tabs` is deprecated)
+- React Native **Strict TypeScript API is the default** (`customConditions: ["react-native"]` in `expo/tsconfig.base`)
+- Unistyles 3.9 **drops the Babel plugin** — use `withUnistylesConfig` from `react-native-unistyles/metro`
+- `expo-router/testing-library` requires `@testing-library/react-native` 14
+- Node.js **22.13+** is required (24.3+ / 26+ also supported)
+- Android release builds now enable **R8** by default
 
 ### Updated Styling Options
 
 | Option | Version |
 | --- | --- |
-| NativeWind | 4.2.6 |
-| Unistyles | 3.3.0 |
-| Uniwind | 1.10.1 |
+| NativeWind | 4.2.7 |
+| Unistyles | 3.9.0 |
+| Uniwind | 1.14.0 |
 
 #### Uniwind Dependencies
 
 ```json
 {
-  "uniwind": "1.10.1",
-  "tailwindcss": "4.1.16"
+  "uniwind": "1.14.0",
+  "tailwindcss": "4.3.5"
 }
 ```
 
@@ -195,6 +199,7 @@ The generated template now targets **Expo SDK 57** (React Native 0.86, React 19.
 
 - `global.css` in `app/` folder with `@layer theme` + `@variant` blocks
 - `metro.config.js` uses `withUniwindConfig` with `extraThemes: ['premium']` and `dtsFile`
+- `types/uniwind.d.ts` references `uniwind/types` so `tsc --noEmit` passes before the first Metro run (Metro regenerates `app/uniwind-types.d.ts`)
 - `useUniwindTheme()` hook for theme management with MMKV persistence (`Uniwind.setTheme('premium')` supported)
 
 ---
@@ -331,47 +336,48 @@ The monorepo is configured with **Bun workspaces** and **Turborepo**:
 
 ### Core Stack (Always Included)
 
-- **React Native**: 0.86.2
-- **React**: 19.2.3
-- **Expo**: 57.0.12
+- **React Native**: 0.88.1
+- **React**: 19.3.0
+- **Expo**: 58.0.26
 - **TypeScript**: 6.0.3
-- **Bun**: 1.2.14 (recommended)
-- **Turborepo**: 2.6.0
+- **Bun**: 1.3.x (recommended)
+- **Turborepo**: 2.11.x
 
 ### Navigation & Routing
 
-- **Expo Router**: ~57.0.12 (File-based routing with typed routes)
+- **Expo Router**: ~58.0.32 (File-based routing with typed routes)
 
 ### Data Fetching (Optional)
 
-- **TanStack Query**: v5.101.4 (React Query)
+- **TanStack Query**: v5.108.4 (React Query)
 
 ### Styling
 
-- **NativeWind**: v4.2.6 (TailwindCSS v3.4 for React Native)
-- **Unistyles**: v3.3.0
-- **Uniwind**: v1.10.1 (Tailwind CSS v4)
-- **Tailwind CSS**: v3.4.17 (NativeWind) / v4.1.16 (Uniwind)
+- **NativeWind**: v4.2.7 (TailwindCSS v3.4 for React Native)
+- **Unistyles**: v3.9.0 (Metro resolver, no Babel plugin)
+- **Uniwind**: v1.14.0 (Tailwind CSS v4)
+- **Tailwind CSS**: v3.4.19 (NativeWind) / v4.3.5 (Uniwind)
 
 ### Storage & Performance
 
-- **MMKV**: v4.3.2 with Nitro Modules 0.36.5 (~30x faster than AsyncStorage)
-- **React Native Reanimated**: v4.5.1
-- **React Native Worklets**: v0.10.1
+- **MMKV**: v4.3.2 with Nitro Modules 0.37.2 (~30x faster than AsyncStorage)
+- **React Native Reanimated**: v4.7.1
+- **React Native Worklets**: v0.13.0
+- **Gesture Handler**: v3.3.0
 
 ### Development Tools
 
-- **Expo Dev Client**: ~57.0.11 (optional)
-- **ESLint**: v9 + eslint-config-expo ~57
-- **Prettier**: v3.6.2
-- **Jest**: v29.7.0 (optional)
+- **Expo Dev Client**: ~58.0.21 (optional)
+- **ESLint**: v9 + eslint-config-expo ~58
+- **Prettier**: v3.10.x
+- **Jest**: v30.5 (jest-expo ~58.0.15, optional)
 
 ### Website Stack
 
 - **Next.js**: 15.5.6
-- **React**: 19.1.0
+- **React**: 19.3.0
 - **Tailwind CSS**: 3.4.x
-- **TypeScript**: 5.9.2
+- **TypeScript**: 6.0.3
 
 ---
 
@@ -829,7 +835,7 @@ const age = storage.getNumber('user.age');
 
 **Dependencies**:
 
-- `@tanstack/react-query`: 5.101.4
+- `@tanstack/react-query`: 5.108.4
 
 **Files**:
 
@@ -863,7 +869,7 @@ const { data, isLoading, error } = useUser(1);
 
 **Dependencies**:
 
-- `expo-dev-client`: ~57.0.11
+- `expo-dev-client`: ~58.0.21
 
 **Scripts**:
 
