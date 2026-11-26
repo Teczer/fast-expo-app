@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
-    "moduleResolution": "node",
-    "lib": ["ES2020"],
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
+    "types": ["node"],
     "outDir": "../packages/fast-expo-app/dist",
     "rootDir": "./src",
     "strict": true,
@@ -18,4 +19,3 @@
   "include": ["src/**/*"],
   "exclude": ["node_modules", "templates"]
 }
-
