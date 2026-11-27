@@ -1,4 +1,5 @@
-import { Link, Tabs } from 'expo-router';
+import { Link } from 'expo-router';
+import { Tabs } from 'expo-router/js-tabs';
 import { Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -46,7 +47,7 @@ export default function TabLayout() {
               </Pressable>
             </Link>
           ),
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color as string} />,
           title: 'Home',
         }}
       />
@@ -55,7 +56,7 @@ export default function TabLayout() {
         options={{
           headerShown: true,
           headerRight: () => <ThemeToggle />,
-          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color as string} />,
           title: 'Settings',
         }}
       />

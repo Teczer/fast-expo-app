@@ -13,7 +13,7 @@ export default function TabOneScreen() {
         <View style={styles.linkContainer}>
           <ExternalLink href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
             <Text style={styles.linkText}>
-              Tap here if your app doesn't automatically update after making changes
+              Tap here if your app doesn&apos;t automatically update after making changes
             </Text>
           </ExternalLink>
         </View>

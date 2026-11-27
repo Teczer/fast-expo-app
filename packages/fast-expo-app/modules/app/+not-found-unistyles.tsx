@@ -14,7 +14,7 @@ export default function NotFoundScreen() {
             <Text style={styles.emoji}>🤔</Text>
             <Text style={styles.title}>Page Not Found</Text>
             <Text style={styles.description}>
-              Sorry, the page you're looking for doesn't exist.
+              Sorry, the page you&apos;re looking for doesn&apos;t exist.
             </Text>
             <Link href="/" style={styles.button}>
               <Text style={styles.buttonText}>Go to Home</Text>

@@ -45,8 +45,8 @@ bun ios   # or bun android
 
 ### 🎯 Core Stack (Always Included)
 
-- ⚡ **Expo SDK 57** - Latest Expo with New Architecture
-- ⚛️ **React Native 0.86** - Modern React Native with Fabric
+- ⚡ **Expo SDK 58** - Latest Expo with New Architecture
+- ⚛️ **React Native 0.88** - Modern React Native with Fabric
 - 🔥 **TypeScript 6.0** - Strict type-safety
 - 📁 **Expo Router** - File-based routing with typed routes
 - 💾 **MMKV v4.3** - Ultra-fast storage (~30x faster than AsyncStorage)
@@ -55,14 +55,14 @@ bun ios   # or bun android
 
 ### 🎨 Styling Options (Choose One)
 
-#### NativeWind v4.2 🌊
+#### NativeWind v4.2.7 🌊
 
 - Tailwind CSS v3.4 for React Native
 - Dark mode with MMKV persistence
 - Utility-first approach
 - Centralized color system
 
-#### Unistyles v3.3 💎
+#### Unistyles v3.9 💎
 
 - Type-safe styling
 - 3-theme system (light/dark/premium)
@@ -70,7 +70,7 @@ bun ios   # or bun android
 - Breakpoints support
 - Better performance
 
-#### Uniwind v1.10 ✨
+#### Uniwind v1.14 ✨
 
 - Tailwind CSS v4 for React Native
 - Live theme switching with `Uniwind.setTheme()`
@@ -202,7 +202,7 @@ bun run clean          # Clear cache and restart
 
 ## 🌟 Features Comparison
 
-| Feature              | NativeWind v4.2             | Unistyles v3.3         | Uniwind v1.10          |
+| Feature              | NativeWind v4.2.7           | Unistyles v3.9         | Uniwind v1.14          |
 | -------------------- | --------------------------- | ---------------------- | ---------------------- |
 | **Styling Approach** | Utility classes             | StyleSheet API         | Tailwind v4 classes    |
 | **Type Safety**      | ⚠️ Limited                  | ✅ Full                | ✅ Generated types     |

@@ -52,10 +52,10 @@ bun run android
 
 ## 📚 Stack
 
-- **Expo SDK 57** with New Architecture
-- **React Native 0.86**
+- **Expo SDK 58** with New Architecture
+- **React Native 0.88** / **React 19.3**
 - **TypeScript 6.0**
-- **NativeWind v4.2** / **Unistyles v3.3** / **Uniwind v1.10**
+- **NativeWind v4.2.7** / **Unistyles v3.9** / **Uniwind v1.14**
 - **Expo Router** (file-based routing)
 - **MMKV v4.3** (ultra-fast storage)
 - **TanStack Query v5** (optional)

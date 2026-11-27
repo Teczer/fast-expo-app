@@ -97,17 +97,17 @@ async function main() {
     options: [
       {
         value: 'nativewind',
-        label: 'NativeWind v4.2',
+        label: 'NativeWind v4.2.7',
         hint: 'Tailwind CSS v3 for React Native',
       },
       {
         value: 'unistyles',
-        label: 'Unistyles v3.3',
+        label: 'Unistyles v3.9',
         hint: 'Type-safe styling with 3 themes',
       },
       {
         value: 'uniwind',
-        label: 'Uniwind v1.10',
+        label: 'Uniwind v1.14',
         hint: 'Tailwind CSS v4 with live theme switching',
       },
     ],
@@ -196,7 +196,14 @@ async function main() {
   }
 
   // Show selected options
-  const stylingLabel = styling === 'nativewind' ? 'NativeWind' : styling === 'unistyles' ? 'Unistyles' : styling === 'uniwind' ? 'Uniwind' : 'StyleSheet';
+  const stylingLabel =
+    styling === 'nativewind'
+      ? 'NativeWind'
+      : styling === 'unistyles'
+        ? 'Unistyles'
+        : styling === 'uniwind'
+          ? 'Uniwind'
+          : 'StyleSheet';
   p.note(
     [
       `Frontend: Expo + ${stylingLabel}`,

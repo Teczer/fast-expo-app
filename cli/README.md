@@ -38,9 +38,9 @@ Future modular features will be stored in the `modules/` directory, allowing use
 
 The base template (`templates/base/`) includes:
 
-- **Expo SDK 57** with file-based routing (Expo Router)
+- **Expo SDK 58** with file-based routing (Expo Router)
 - **TypeScript 6** for type safety
-- **NativeWind v4.2**, **Unistyles v3.3**, or **Uniwind v1.10**
+- **NativeWind v4.2.7**, **Unistyles v3.9**, or **Uniwind v1.14**
 - **Dark mode** support
 - **MMKV** for fast local storage
 - **React Query** for data fetching
