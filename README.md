@@ -248,12 +248,12 @@ We welcome contributions! Please see our [Contributing Guide](./docs/CONTRIBUTIN
 
 - **80+ GitHub Stars** ⭐
 - **26+ Forks** 🍴
-- **v5.0.0** - Expo SDK 58, RN 0.88, React 19.3, Uniwind 1.14, NativeWind 4.2.7, Unistyles 3.9
+- **v4.1.0** - Expo SDK 58, RN 0.88, React 19.3, Uniwind 1.14, NativeWind 4.2.7, Unistyles 3.9
 - **v4.0.0** - Expo SDK 57, RN 0.86, Uniwind 1.10, NativeWind 4.2, Unistyles 3.3
 - **v3.2.0** - Added Uniwind styling with Tailwind v4
 - **Active Development** 🚀
 
-## 🆕 What's New in v5.0.0
+## 🆕 What's New in v4.1.0
 
 - ⚡ **Expo SDK 58** / React Native 0.88 / React 19.3
 - 🎨 **NativeWind 4.2.7**, **Unistyles 3.9.0**, **Uniwind 1.14.0**

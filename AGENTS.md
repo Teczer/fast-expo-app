@@ -27,7 +27,7 @@
 2. A **production-ready boilerplate** with modern best practices
 3. A **landing website** to showcase the project
 
-### What's Included (v5.0.0)
+### What's Included (v4.1.0)
 
 #### Core Stack (Always Included)
 
@@ -163,7 +163,7 @@ fast-expo-app-monorepo/
 
 ---
 
-## What's New in v5.0.0 🆕
+## What's New in v4.1.0 🆕
 
 ### Expo SDK 58
 
