@@ -75,6 +75,7 @@ Pick what you need during setup:
 - 🌐 **TanStack Query v5** - Powerful data fetching with MMKV persistence
 - 🔄 **Zustand** - Lightweight state management with MMKV storage
 - 🛠️ **expo-dev-client** - Enhanced debugging with native logs
+- 🧊 **Liquid Glass** - Native iOS 26+ glass navigation & UI
 - 🧪 **Jest** - Unit testing framework
 
 ### 🎁 Pre-configured
@@ -248,6 +249,7 @@ We welcome contributions! Please see our [Contributing Guide](./docs/CONTRIBUTIN
 
 - **100+ GitHub Stars** ⭐
 - **26+ Forks** 🍴
+- **v4.2.0** - Liquid Glass module (native iOS 26+ glass navigation)
 - **v4.1.0** - Expo SDK 58, RN 0.88, React 19.3, Uniwind 1.14, NativeWind 4.2.7, Unistyles 3.9
 - **v4.0.0** - Expo SDK 57, RN 0.86, Uniwind 1.10, NativeWind 4.2, Unistyles 3.3
 - **v3.2.0** - Added Uniwind styling with Tailwind v4

@@ -27,7 +27,7 @@
 2. A **production-ready boilerplate** with modern best practices
 3. A **landing website** to showcase the project
 
-### What's Included (v4.1.0)
+### What's Included (v4.2.0)
 
 #### Core Stack (Always Included)
 
@@ -50,7 +50,8 @@
 ✅ **TanStack Query v5** - Data fetching with MMKV persistence  
 ✅ **Zustand** - State management with MMKV storage  
 ✅ **Expo Dev Client** - Enhanced debugging  
-✅ **Jest** - Unit testing
+✅ **Jest** - Unit testing  
+✅ **Liquid Glass** - Native iOS 26+ glass navigation & UI
 
 #### Pre-configured
 
@@ -162,6 +163,21 @@ fast-expo-app-monorepo/
 ```
 
 ---
+
+## What's New in v4.2.0 🆕
+
+### Liquid Glass (optional module)
+
+Native **Liquid Glass** UI on iOS 26+ (`expo-glass-effect` ~58.0.6), available with
+all three styling options (NativeWind, Unistyles, Uniwind):
+
+- Tab layout switches to `expo-router/native-tabs` (`NativeTabs` + SF Symbols) with the
+  Liquid Glass tab bar material
+- `components/glass.tsx` ships `Glass` and `GlassButton` with a fallback style on Android
+  and iOS < 26; `lib/glass.ts` exposes `isGlassEnabled`
+- Floating glass controls (modal link + theme toggle) replace the JS header in glass mode
+- When the module is not selected, `expo-glass-effect` is removed and the classic JS tab
+  bar is generated
 
 ## What's New in v4.1.0 🆕
 
@@ -905,6 +921,40 @@ const { data, isLoading, error } = useUser(1);
 ```json
 "test": "jest"
 ```
+
+---
+
+### 5. Liquid Glass (Default: ❌ Disabled)
+
+**Native Liquid Glass UI on iOS 26+**
+
+**Dependencies**:
+
+- `expo-glass-effect`: ~58.0.6
+
+**Files**:
+
+- `lib/glass.ts` - `isGlassEnabled` gate (iOS + `isLiquidGlassAvailable()`)
+- `components/glass.tsx` - `Glass` and `GlassButton` components
+- `app/(tabs)/_layout.tsx` - NativeTabs variant (`liquid-glass/layout/tabs-<styling>-glass.tsx`)
+  with floating glass controls
+
+**Usage**:
+
+```typescript
+import { Glass, GlassButton, isGlassEnabled } from '@/components/glass';
+
+<Glass isInteractive style={{ padding: 16 }}>
+  <Text>Liquid Glass surface</Text>
+</Glass>
+
+<GlassButton onPress={onPress} accessibilityLabel="Close">
+  <Ionicons name="close" size={22} />
+</GlassButton>
+```
+
+On Android and iOS < 26 the components render their fallback styles and the layout keeps
+the classic JS tab bar.
 
 ---
 

@@ -84,6 +84,7 @@ Pick what you need:
 - 🌐 **TanStack Query v5** - Data fetching with MMKV persistence
 - 🔄 **Zustand** - State management with MMKV storage
 - 🛠️ **expo-dev-client** - Enhanced debugging
+- 🧊 **Liquid Glass** - Native iOS 26+ glass navigation & UI
 - 🧪 **Jest** - Unit testing
 
 ### 🎁 Pre-configured

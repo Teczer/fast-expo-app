@@ -14,6 +14,7 @@ export async function generateProject(
     hasZustand: modules.includes('zustand'),
     hasReactQuery: modules.includes('react-query'),
     hasDevClient: modules.includes('expo-dev-client'),
+    hasLiquidGlass: modules.includes('liquid-glass'),
     styling: styling as 'nativewind' | 'unistyles' | 'uniwind',
   };
 
@@ -88,6 +89,32 @@ export async function generateProject(
     if (fs.existsSync(hookModule)) {
       manager.copyModule(hookModule, hookTarget, config);
     }
+  }
+
+  // 3d. Generate Liquid Glass files if selected
+  if (config.hasLiquidGlass) {
+    p.log.step('Generating Liquid Glass components...');
+    const glassLibModule = path.join(manager.modulesPath, 'liquid-glass', 'lib', 'glass.ts');
+    const glassLibTarget = path.join(targetPath, 'lib', 'glass.ts');
+    manager.copyModule(glassLibModule, glassLibTarget, config);
+
+    const glassComponentModule = path.join(
+      manager.modulesPath,
+      'liquid-glass',
+      'components',
+      'glass.tsx'
+    );
+    const glassComponentTarget = path.join(targetPath, 'components', 'glass.tsx');
+    manager.copyModule(glassComponentModule, glassComponentTarget, config);
+  } else {
+    [
+      path.join(targetPath, 'lib', 'glass.ts'),
+      path.join(targetPath, 'components', 'glass.tsx'),
+    ].forEach((file) => {
+      if (fs.existsSync(file)) {
+        fs.rmSync(file, { force: true });
+      }
+    });
   }
 
   // 4. Handle styling

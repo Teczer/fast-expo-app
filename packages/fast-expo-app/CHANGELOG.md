@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.2.0] - 2026-11-27
+
+### 🧊 Liquid Glass (optional module)
+
+New optional module: native **Liquid Glass** UI on iOS 26+ (via `expo-glass-effect`),
+available with all three styling options.
+
+- Native tab bar with the Liquid Glass material (`expo-router/native-tabs`, SF Symbols icons)
+- `Glass` and `GlassButton` components (`components/glass.tsx`) with a graceful fallback
+  on Android and iOS < 26
+- Floating glass controls (modal link + theme toggle) replacing the JS header in glass mode
+- Classic JS tab bar fallback when Liquid Glass is unavailable (`lib/glass.ts` gate)
+
 ## [4.1.0] - 2026-11-26
 
 ### ⚡ Expo SDK 58

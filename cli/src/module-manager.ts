@@ -10,6 +10,7 @@ export interface ModuleConfig {
   hasZustand: boolean;
   hasReactQuery: boolean;
   hasDevClient: boolean;
+  hasLiquidGlass: boolean;
   styling: 'nativewind' | 'unistyles' | 'uniwind';
 }
 
@@ -97,14 +98,17 @@ export class ModuleManager {
    * Get the tabs layout module file path based on styling
    */
   getTabsLayoutModule(config: ModuleConfig): string {
-    const layoutPath = path.join(this.modulesPath, 'layout');
+    const suffix = config.hasLiquidGlass ? '-glass' : '';
+    const layoutPath = config.hasLiquidGlass
+      ? path.join(this.modulesPath, 'liquid-glass', 'layout')
+      : path.join(this.modulesPath, 'layout');
     if (config.styling === 'unistyles') {
-      return path.join(layoutPath, 'tabs-unistyles.tsx');
+      return path.join(layoutPath, `tabs-unistyles${suffix}.tsx`);
     }
     if (config.styling === 'uniwind') {
-      return path.join(layoutPath, 'tabs-uniwind.tsx');
+      return path.join(layoutPath, `tabs-uniwind${suffix}.tsx`);
     }
-    return path.join(layoutPath, 'tabs-nativewind.tsx');
+    return path.join(layoutPath, `tabs-nativewind${suffix}.tsx`);
   }
 
   /**
@@ -225,6 +229,10 @@ export class ModuleManager {
       deps['expo-dev-client'] = '~58.0.21';
     }
 
+    if (config.hasLiquidGlass) {
+      deps['expo-glass-effect'] = '~58.0.6';
+    }
+
     // Always add these dependencies
     deps['expo-haptics'] = '~58.0.8';
     deps['react-native-edge-to-edge'] = '1.8.2';
@@ -269,6 +277,10 @@ export class ModuleManager {
 
     if (!config.hasDevClient) {
       toRemove.push('expo-dev-client', '@dev-plugins/react-native-mmkv');
+    }
+
+    if (!config.hasLiquidGlass) {
+      toRemove.push('expo-glass-effect');
     }
 
     if (config.styling !== 'nativewind') {

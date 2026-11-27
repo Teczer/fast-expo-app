@@ -129,6 +129,11 @@ async function main() {
         hint: 'Lightweight state management',
       },
       {
+        value: 'liquid-glass',
+        label: 'Liquid Glass',
+        hint: 'Native iOS 26+ glass navigation & UI',
+      },
+      {
         value: 'expo-dev-client',
         label: 'expo-dev-client',
         hint: 'Enhanced debugging & custom native modules',
